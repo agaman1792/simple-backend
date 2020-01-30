@@ -1,15 +1,9 @@
 import Express from 'express';
 
-import { Clients, Policies } from '../storage';
+import { PoliciesRouter } from './route.policies';
+import { UserRouter } from './route.user';
 
 export const Server = Express();
 
-Server.use('/users', (req, res) => {
-
-    res.json(Clients);
-});
-
-Server.use('/policies', (req, res) => {
-
-    res.json(Policies);
-});
+Server.use('/policies', PoliciesRouter);
+Server.use('/users', UserRouter);
