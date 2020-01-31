@@ -1,6 +1,6 @@
 import Express from 'express';
 
-import { Clients, Policies } from '../storage';
+import { Clients, Policies } from '../../storage';
 
 export const UserRouter = Express.Router();
 

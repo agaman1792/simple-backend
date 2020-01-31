@@ -9,13 +9,17 @@
   "author": "Alexandru Gaman <alexandru.gaman17@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@types/compression": "^1.0.1",
+    "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "request": "^2.88.0",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "response-time": "^2.3.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.2",
-    "@types/request-promise": "^4.1.45"
+    "@types/request-promise": "^4.1.45",
+    "@types/response-time": "^2.3.4"
   }
 }

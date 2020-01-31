@@ -1,2 +1,2 @@
-export * from './api.models';
-export * from './api.service';
+export * from './clients.api.service';
+export * from './policies.api.service';
