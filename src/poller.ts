@@ -1,18 +1,18 @@
 import { WEBSERVICE_POLICIES_URL, WEBSERVICE_CLIENTS_URL } from './config';
 
-import { GetClients, GetPolicies } from './services';
+import { clientsApiService, policiesApiService } from './services';
 import { Clients, Policies } from './storage';
 
 const SyncClients = async () => {
-    const clients = await GetClients(WEBSERVICE_CLIENTS_URL);
+    const clients = await clientsApiService.get(WEBSERVICE_CLIENTS_URL);
     Clients.length = 0;
-    Clients.push(...clients.clients);
+    Clients.push(...clients);
 };
 
 const SyncPolicies = async () => {
-    const policies = await GetPolicies(WEBSERVICE_POLICIES_URL);
+    const policies = await policiesApiService.get(WEBSERVICE_POLICIES_URL);
     Policies.length = 0;
-    Policies.push(...policies.policies);
+    Policies.push(...policies);
 };
 
 export const SynchronizeData = async () => {

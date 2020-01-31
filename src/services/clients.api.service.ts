@@ -1,4 +1,4 @@
-import { MakeApiRequest } from "./base/api.service";
+import { IApiService, MakeGetRequest } from './base';
 
 export interface IClient {
     id: string;
@@ -11,4 +11,13 @@ export interface IClientResponse {
     clients: IClient[];
 }
 
-export const GetClients = async (url: string): Promise<IClientResponse> => MakeApiRequest<IClientResponse>(url);
+class ClientsApiService implements IApiService {
+
+    async get(url: string) {
+        const data = await MakeGetRequest<IClientResponse>(url);
+        return data.clients;
+    }
+
+}
+
+export const clientsApiService = new ClientsApiService();

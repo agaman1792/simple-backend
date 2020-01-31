@@ -1,4 +1,4 @@
-import { MakeApiRequest } from "./base/api.service";
+import { IApiService, MakeGetRequest } from './base';
 
 export interface IPolicy {
     id: string;
@@ -11,4 +11,13 @@ export interface IPolicyResponse {
     policies: IPolicy[];
 }
 
-export const GetPolicies = async (url: string): Promise<IPolicyResponse> => MakeApiRequest<IPolicyResponse>(url);
+class PoliciesApiService implements IApiService {
+
+    async get(url: string) {
+        const data = await MakeGetRequest<IPolicyResponse>(url);
+        return data.policies;
+    }
+
+}
+
+export const policiesApiService = new PoliciesApiService();
