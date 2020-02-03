@@ -1,10 +1,8 @@
-import Express from 'express';
+import { Request, Response } from 'express';
 
 import { Clients, Policies } from '../../storage';
 
-export const PoliciesRouter = Express.Router();
-
-PoliciesRouter.get('/:username', (req, res) => {
+export const GetPoliciesRouteHandler = (req: Request, res: Response) => {
     const username = req.params.username;
     console.log(username);
 
@@ -14,4 +12,4 @@ PoliciesRouter.get('/:username', (req, res) => {
     if (!user) return res.json([]);
 
     return res.json(Policies.filter(policy => policy.clientId === user.id));
-});
+};

@@ -1,10 +1,8 @@
-import Express from 'express';
+import { Request, Response } from 'express';
 
 import { Clients, Policies } from '../../storage';
 
-export const UserRouter = Express.Router();
-
-UserRouter.get('/', (req, res) => {
+export const FilterUsersRouteHandler = (req: Request, res: Response) => {
     const params = req.query;
     console.log(params);
 
@@ -21,9 +19,9 @@ UserRouter.get('/', (req, res) => {
     }
 
     res.json(Clients);
-});
+};
 
-UserRouter.get('/policy/:policyNumber', (req, res) => {
+export const GetUserByPolicyNumberRouteHandler = (req: Request, res: Response) => {
     const policyNumber = req.params.policyNumber;
     console.log(policyNumber);
 
@@ -33,4 +31,4 @@ UserRouter.get('/policy/:policyNumber', (req, res) => {
     if (!policy) return res.json([]);
 
     res.json(Clients.find(client => client.id === policy.clientId));
-});
+};
