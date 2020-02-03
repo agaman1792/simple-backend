@@ -1,6 +1,6 @@
 ## Building the project
 
-#### 1. Get the source code - `git clone whatever`
+#### 1. Get the source code - `git clone git@github.com:agaman1792/simple-backend.git`
 
 #### 2. Install dependencies - `npm install`
 
