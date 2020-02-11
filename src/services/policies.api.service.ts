@@ -1,14 +1,16 @@
 import { IApiService, MakeGetRequest } from './base';
 
-export interface IPolicy {
+export interface IApiPolicy {
     id: string;
-    name: string;
+    amountInsured: number;
     email: string;
-    role: string;
+    inceptionDate: string;
+    installmentPayment: boolean;
+    clientId: string;
 }
 
 export interface IPolicyResponse {
-    policies: IPolicy[];
+    policies: IApiPolicy[];
 }
 
 class PoliciesApiService implements IApiService {

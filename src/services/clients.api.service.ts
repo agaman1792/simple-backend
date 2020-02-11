@@ -1,6 +1,6 @@
 import { IApiService, MakeGetRequest } from './base';
 
-export interface IClient {
+export interface IApiClient {
     id: string;
     name: string;
     email: string;
@@ -8,7 +8,7 @@ export interface IClient {
 }
 
 export interface IClientResponse {
-    clients: IClient[];
+    clients: IApiClient[];
 }
 
 class ClientsApiService implements IApiService {

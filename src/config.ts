@@ -12,3 +12,6 @@ export const USER_PASSWORD = config.USER_PASSWORD;
 
 export const SERVER_HOST = config.SERVER_HOST;
 export const SERVER_PORT = parseInt(config.SERVER_PORT);
+
+export const STORAGE_URL = config.STORAGE_URL;
+export const STORAGE_SYNC_INTERVAL = parseInt(config.STORAGE_SYNC_INTERVAL);

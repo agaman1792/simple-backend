@@ -1,15 +1,13 @@
 import { Request, Response } from 'express';
 
-import { Clients, Policies } from '../../storage';
+import { Storage } from '../../storage';
 
-export const GetPoliciesRouteHandler = (req: Request, res: Response) => {
+export const GetPoliciesRouteHandler = async (req: Request, res: Response) => {
     const username = req.params.username;
     console.log(username);
 
     if (!req.params.username) return res.json([]);
 
-    const user = Clients.find(client => client.name === username);
-    if (!user) return res.json([]);
-
-    return res.json(Policies.filter(policy => policy.clientId === user.id));
+    const policies = await Storage.getPoliciesByClientName(req.params.username);
+    return res.json(policies);
 };
